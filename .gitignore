@@ -15,5 +15,5 @@ panoramix.egg-info/
 app.db
 *.bak
 node_modules/
-*/static/bundle.js
+*.entry.js
 *.js.map

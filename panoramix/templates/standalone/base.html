@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% block page_title %}
+        {% if appbuilder %}
+            {{ appbuilder.app_name }}
+        {% endif %}
+      {% endblock %}
+    </title>
+
+    {% block head_css %}
+      <!-- CSS globals here for now :/ -->
+      <link href="{{url_for('appbuilder.static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+      <link href="{{url_for('appbuilder.static',filename='css/font-awesome.min.css')}}" rel="stylesheet">
+      <link href="{{url_for('appbuilder.static',filename='datepicker/bootstrap-datepicker.css')}}" rel="stylesheet">
+      <link href="{{url_for('appbuilder.static',filename='select2/select2.css')}}" rel="stylesheet">
+      <link href="{{url_for('appbuilder.static',filename='css/flags/flags16.css')}}" rel="stylesheet">
+      <link href="{{url_for('appbuilder.static',filename='css/ab.css')}}" rel="stylesheet">
+
+      <link rel="shortcut icon" href="/static/img/chaudron.png" />
+      <link rel="stylesheet" type="text/css" href="/static/panoramix-bootstrap-theme.css" />
+      <link rel="stylesheet" type="text/css" href="/static/panoramix.css" />
+      <link rel="stylesheet" type="text/css" href="/static/lib/jquery-ui/jquery-ui.min.css" />
+    {% endblock %}
+
+    {% block head_js %}{% endblock %}
+  </head>
+  <body>
+    {% block body %}
+
+      {% block navbar %}
+        <header class="top" role="header">
+        {% include 'appbuilder/navbar.html' %}
+        </header>
+      {% endblock %}
+
+      {% block uncontained %}{% endblock %}
+
+      <div class="container">
+        <div class="row">
+            {% block messages %}
+              {% include 'appbuilder/flash.html' %}
+            {% endblock %}
+            {% block content %}
+            {% endblock %}
+        </div>
+      </div>
+      <div class="container-fluid">
+          {% block content_fluid %}
+          {% endblock %}
+      </div>
+
+    {% endblock %}
+
+    {% block tail_js %}{% endblock %}
+  </body>
+</html>

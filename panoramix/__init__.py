@@ -20,7 +20,7 @@ migrate = Migrate(app, db, directory=APP_DIR + "/migrations")
 
 
 class MyIndexView(IndexView):
-    index_template = 'index.html'
+    index_template = 'standalone/index.html'
 
 appbuilder = AppBuilder(
     app, db.session, base_template='panoramix/base.html',

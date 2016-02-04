@@ -5,10 +5,12 @@ var BUILD_DIR = path.resolve(__dirname, 'panoramix/static');    // output
 var APP_DIR   = path.resolve(__dirname, 'panoramix/static/js'); // input
 
 var config = {
-  entry: APP_DIR + '/main.jsx',
+  entry: {
+    index: APP_DIR + '/index.js'
+  },
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js'
+    filename: '[name].entry.js'
   },
   module : {
     loaders : [
